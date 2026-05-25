@@ -1,8 +1,8 @@
-name: Weekly Market Monitor
+name: Weekly Market Monitor + Article Suggestions
 
 on:
   schedule:
-    # Запускается каждый понедельник в 09:00 UTC (это 12:00 по московскому времени)
+    # Запускается каждый понедельник в 09:00 UTC (12:00 по московскому времени)
     - cron: '0 9 * * 1'
   # Позволяет запустить вручную из GitHub Actions интерфейса
   workflow_dispatch:
@@ -23,18 +23,24 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests
+          pip install requests anthropic
       
       - name: Create data directory
-        run: mkdir -p data
+        run: mkdir -p data suggestions
       
       - name: Run market monitor
-        run: python market_monitor.py
+        run: python scripts/market_monitor.py
+      
+      - name: Generate article suggestions
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/article_suggestions.py
       
       - name: Commit and push results
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add data/companies_data.json
-          git commit -m "📊 Update market monitoring data - $(date '+%Y-%m-%d %H:%M')" || true
+          git add suggestions/
+          git commit -m "📊 Update market data & 📝 Generate article suggestions - $(date '+%Y-%m-%d %H:%M')" || true
           git push origin main

@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Monitoring Dashboard - Axenix & Competitors</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            background: #f5f7fa;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: white;
+            padding: 24px 0;
+            border-bottom: 1px solid #e1e8ed;
+            margin-bottom: 32px;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            color: #0a1428;
+        }
+        
+        .meta {
+            font-size: 13px;
+            color: #65676b;
+        }
+        
+        .last-update {
+            color: #0a66c2;
+            font-weight: 500;
+        }
+        
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        
+        .metric-card {
+            background: white;
+            border: 1px solid #e1e8ed;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: box-shadow 0.3s;
+        }
+        
+        .metric-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        
+        .metric-label {
+            font-size: 12px;
+            color: #65676b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            display: block;
+        }
+        
+        .metric-value {
+            font-size: 32px;
+            font-weight: 600;
+            color: #0a1428;
+            margin-bottom: 8px;
+        }
+        
+        .metric-change {
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .change-positive {
+            color: #06a77d;
+        }
+        
+        .change-negative {
+            color: #dc3545;
+        }
+        
+        .chart-container {
+            background: white;
+            border: 1px solid #e1e8ed;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+        
+        .chart-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #0a1428;
+        }
+        
+        .chart-wrapper {
+            position: relative;
+            height: 350px;
+            margin-bottom: 12px;
+        }
+        
+        .chart-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+            margin-top: 16px;
+            font-size: 13px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+        }
+        
+        .articles-section {
+            background: white;
+            border: 1px solid #e1e8ed;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+        
+        .articles-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #0a1428;
+        }
+        
+        .article-item {
+            padding: 16px;
+            border-left: 4px solid #0a66c2;
+            margin-bottom: 12px;
+            background: #f9fafb;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .article-item:hover {
+            background: #f0f4f8;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .article-item.positive {
+            border-left-color: #06a77d;
+        }
+        
+        .article-item.negative {
+            border-left-color: #dc3545;
+        }
+        
+        .article-item.neutral {
+            border-left-color: #adb5bd;
+        }
+        
+        .article-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 8px;
+            gap: 12px;
+        }
+        
+        .article-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #0a1428;
+            margin-bottom: 6px;
+        }
+        
+        .article-title a {
+            color: #0a66c2;
+            text-decoration: none;
+            border-bottom: 1px solid #0a66c2;
+        }
+        
+        .article-title a:hover {
+            color: #085fa5;
+        }
+        
+        .article-meta {
+            display: flex;
+            gap: 16px;
+            font-size: 12px;
+            color: #65676b;
+            align-items: center;
+        }
+        
+        .article-source {
+            background: #e7f1ff;
+            color: #0a66c2;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+        
+        .article-sentiment {
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-weight: 500;
+            font-size: 11px;
+        }
+        
+        .sentiment-positive {
+            background: #e6f4ea;
+            color: #06a77d;
+        }
+        
+        .sentiment-negative {
+            background: #fce4e6;
+            color: #dc3545;
+        }
+        
+        .sentiment-neutral {
+            background: #f0f0f0;
+            color: #5f6368;
+        }
+        
+        .company-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 16px;
+            margin-bottom: 32px;
+        }
+        
+        .company-card {
+            background: white;
+            border: 1px solid #e1e8ed;
+            border-radius: 8px;
+            padding: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .company-card:hover {
+            border-color: #0a66c2;
+            box-shadow: 0 4px 12px rgba(10, 102, 194, 0.12);
+        }
+        
+        .company-name {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #0a1428;
+        }
+        
+        .company-stat {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            margin-bottom: 8px;
+            color: #65676b;
+        }
+        
+        .company-stat-value {
+            font-weight: 600;
+            color: #0a1428;
+        }
+        
+        .sentiment-bars {
+            display: flex;
+            height: 6px;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 8px;
+            gap: 2px;
+        }
+        
+        .sentiment-bar-positive {
+            background: #06a77d;
+        }
+        
+        .sentiment-bar-neutral {
+            background: #adb5bd;
+        }
+        
+        .sentiment-bar-negative {
+            background: #dc3545;
+        }
+        
+        .topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        
+        .topic-tag {
+            background: #e7f1ff;
+            color: #0a66c2;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-size: 16px;
+            color: #65676b;
+        }
+        
+        .error {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            color: #856404;
+            padding: 16px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        
+        .compare-section {
+            background: white;
+            border: 1px solid #e1e8ed;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+        
+        .compare-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #0a1428;
+        }
+        
+        .filter-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+        
+        .filter-btn {
+            background: white;
+            border: 1px solid #e1e8ed;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn:hover {
+            border-color: #0a66c2;
+            color: #0a66c2;
+        }
+        
+        .filter-btn.active {
+            background: #0a66c2;
+            color: white;
+            border-color: #0a66c2;
+        }
+        
+        .articles-axenix {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+        }
+        
+        @media (max-width: 768px) {
+            .metrics {
+                grid-template-columns: 1fr;
+            }
+            
+            .company-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 22px;
+            }
+            
+            .chart-wrapper {
+                height: 250px;
+            }
+            
+            .articles-axenix {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>📊 Market Monitoring Dashboard</h1>
+            <p class="meta">
+                Мониторинг позиционирования Axenix и 31 конкурента в IT-индустрии
+                <span class="last-update" id="last-update-info"> • Загрузка данных...</span>
+            </p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div id="error-container" style="display: none;"></div>
+        <div id="loading" class="loading">⏳ Загружаю данные мониторинга...</div>
+        
+        <div id="dashboard" style="display: none;">
+            
+            <!-- Метрики -->
+            <div class="metrics">
+                <div class="metric-card">
+                    <span class="metric-label">Упоминания Axenix</span>
+                    <span class="metric-value" id="axenix-mentions">-</span>
+                    <span class="metric-change" id="axenix-change">-</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-label">Сентимент Axenix</span>
+                    <span class="metric-value" id="axenix-sentiment">-</span>
+                    <span class="metric-change">Позитивные упоминания</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-label">Share of Voice</span>
+                    <span class="metric-value" id="share-of-voice">-</span>
+                    <span class="metric-change">% от всех упоминаний</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-label">Топ конкурент</span>
+                    <span class="metric-value" id="top-competitor">-</span>
+                    <span class="metric-change" id="top-competitor-mentions">-</span>
+                </div>
+            </div>
+            
+            <!-- ТОП СТАТЬИ AXENIX СО ССЫЛКАМИ -->
+            <div class="articles-section">
+                <h2 class="articles-title">📰 Топ статьи об Axenix (со ссылками)</h2>
+                <div class="articles-axenix" id="axenix-articles">
+                    <!-- Заполняется через JavaScript -->
+                </div>
+            </div>
+            
+            <!-- График динамики -->
+            <div class="chart-container">
+                <h2 class="chart-title">📈 Динамика упоминаний (последние 12 недель)</h2>
+                <div class="chart-wrapper">
+                    <canvas id="trendsChart" role="img" aria-label="График динамики упоминаний"></canvas>
+                </div>
+                <div class="chart-legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #0a66c2;"></div>
+                        <span>Axenix</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #06a77d;"></div>
+                        <span>Bell Integrator</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #ffc107;"></div>
+                        <span>Топ-3 конкуренты</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- График источников -->
+            <div class="chart-container">
+                <h2 class="chart-title">🌐 Распределение упоминаний Axenix по источникам</h2>
+                <div class="chart-wrapper">
+                    <canvas id="sourcesChart" role="img" aria-label="График источников упоминаний"></canvas>
+                </div>
+            </div>
+            
+            <!-- Компании -->
+            <div class="compare-section">
+                <h2 class="compare-title">🏢 Позиционирование компаний</h2>
+                
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Все компании</button>
+                    <button class="filter-btn" data-filter="top10">Топ-10</button>
+                    <button class="filter-btn" data-filter="axenix-competitors">Прямые конкуренты Axenix</button>
+                </div>
+                
+                <div class="company-grid" id="companies-grid">
+                    <!-- Заполняется через JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Темы -->
+            <div class="chart-container">
+                <h2 class="chart-title">💡 Основные темы позиционирования</h2>
+                <div id="topics-container">
+                    <!-- Заполняется через JavaScript -->
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+    <script>
+        const historicalData = {
+            weeks: ['Н1', 'Н2', 'Н3', 'Н4', 'Н5', 'Н6', 'Н7', 'Н8', 'Н9', 'Н10', 'Н11', 'Н12'],
+            axenix: [150, 165, 180, 195, 210, 225, 240, 260, 280, 300, 312, 324],
+            bell: [450, 480, 520, 560, 600, 650, 700, 750, 800, 830, 845, 856],
+            average: [300, 320, 340, 360, 380, 400, 420, 440, 460, 480, 500, 520]
+        };
+        
+        let currentData = null;
+        let allCompanies = {};
+        
+        async function loadData() {
+            try {
+                const response = await fetch('../data/companies_data.json');
+                
+                if (!response.ok) {
+                    throw new Error('Data file not found');
+                }
+                
+                currentData = await response.json();
+                allCompanies = currentData.companies;
+                
+            } catch (e) {
+                console.log('Using demo data:', e.message);
+                
+                currentData = {
+                    timestamp: new Date().toISOString(),
+                    week: 20,
+                    total_mentions: 8500,
+                    companies: generateDemoData()
+                };
+                allCompanies = currentData.companies;
+            }
+            
+            renderDashboard();
+        }
+        
+        function generateDemoData() {
+            const demoCompanies = {
+                'axenix': {
+                    mentions: 324,
+                    sources: { 'Habr': 92, 'VC.ru': 68, 'YouTube': 54, 'Google News': 42, 'Company Website': 68 },
+                    sentiment: { positive: 220, neutral: 80, negative: 24 },
+                    topics: { 'облачные решения': 45, 'devops': 35, 'цифровизация': 28, 'ai': 18, 'безопасность': 15 },
+                    top_articles: [
+                        {
+                            source: 'Habr',
+                            title: 'Axenix представила облачное решение для критической инфраструктуры',
+                            url: 'https://habr.com/articles/example1/',
+                            sentiment: 'positive',
+                            date: '2025-05-20T10:30:00'
+                        },
+                        {
+                            source: 'VC.ru',
+                            title: 'Axenix получила грант на развитие DevOps платформы',
+                            url: 'https://vc.ru/articles/example2/',
+                            sentiment: 'positive',
+                            date: '2025-05-19T14:15:00'
+                        },
+                        {
+                            source: 'Company Website',
+                            title: 'Axenix расширяет команду R&D',
+                            url: 'https://axenix.io/news/example3/',
+                            sentiment: 'neutral',
+                            date: '2025-05-18T09:00:00'
+                        },
+                        {
+                            source: 'Google News',
+                            title: 'Axenix подписала контракт с крупной компанией',
+                            url: 'https://news.example.ru/article/',
+                            sentiment: 'positive',
+                            date: '2025-05-17T16:45:00'
+                        }
+                    ]
+                },
+                'bell': {
+                    mentions: 856,
+                    sources: { 'Habr': 250, 'VC.ru': 200, 'YouTube': 180, 'Google News': 120, 'Company Website': 106 },
+                    sentiment: { positive: 580, neutral: 210, negative: 66 },
+                    topics: { 'облачные решения': 120, 'интеграция': 100, 'цифровизация': 85, 'devops': 60, 'ai': 40 },
+                    top_articles: []
+                },
+                'lanit': {
+                    mentions: 612,
+                    sources: { 'Habr': 180, 'VC.ru': 150, 'YouTube': 120, 'Google News': 100, 'Company Website': 62 },
+                    sentiment: { positive: 400, neutral: 160, negative: 52 },
+                    topics: { 'облачные решения': 100, 'цифровизация': 90, 'интеграция': 80, 'безопасность': 45, 'ai': 30 },
+                    top_articles: []
+                },
+                'krok': {
+                    mentions: 534,
+                    sources: { 'Habr': 150, 'VC.ru': 130, 'YouTube': 100, 'Google News': 80, 'Company Website': 74 },
+                    sentiment: { positive: 350, neutral: 140, negative: 44 },
+                    topics: { 'цифровизация': 85, 'облачные решения': 75, 'интеграция': 70, 'безопасность': 40, 'devops': 35 },
+                    top_articles: []
+                },
+                'glowbyte': {
+                    mentions: 421,
+                    sources: { 'Habr': 120, 'VC.ru': 110, 'YouTube': 85, 'Google News': 70, 'Company Website': 36 },
+                    sentiment: { positive: 280, neutral: 110, negative: 31 },
+                    topics: { 'ai': 65, 'облачные решения': 60, 'devops': 55, 'цифровизация': 45, 'данные': 35 },
+                    top_articles: []
+                }
+            };
+            
+            return demoCompanies;
+        }
+        
+        function renderDashboard() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('dashboard').style.display = 'block';
+            
+            updateMetrics();
+            drawTrendsChart();
+            drawSourcesChart();
+            renderArticles();
+            renderCompanies();
+            renderTopics();
+            updateLastUpdate();
+            setupFilters();
+        }
+        
+        function updateMetrics() {
+            const axenixData = allCompanies['axenix'];
+            const bellData = allCompanies['bell'];
+            
+            if (axenixData) {
+                document.getElementById('axenix-mentions').textContent = axenixData.mentions;
+                const sentiment = Math.round((axenixData.sentiment.positive / axenixData.mentions) * 100);
+                document.getElementById('axenix-sentiment').textContent = '+' + sentiment + '%';
+                
+                const shareOfVoice = ((axenixData.mentions / currentData.total_mentions) * 100).toFixed(1);
+                document.getElementById('share-of-voice').textContent = shareOfVoice + '%';
+            }
+            
+            if (bellData) {
+                document.getElementById('top-competitor').textContent = 'Bell Integrator';
+                document.getElementById('top-competitor-mentions').textContent = bellData.mentions + ' упоминаний';
+            }
+        }
+        
+        function renderArticles() {
+            const container = document.getElementById('axenix-articles');
+            const axenixData = allCompanies['axenix'];
+            
+            if (!axenixData || !axenixData.top_articles) {
+                container.innerHTML = '<p style="color: #65676b;">Нет данных о статьях</p>';
+                return;
+            }
+            
+            const articles = axenixData.top_articles.slice(0, 6);
+            
+            container.innerHTML = articles.map(article => `
+                <div class="article-item ${article.sentiment}">
+                    <div class="article-header">
+                        <div style="flex: 1;">
+                            <div class="article-title">
+                                <a href="${article.url}" target="_blank" rel="noopener noreferrer">
+                                    ${article.title}
+                                </a>
+                            </div>
+                            <div class="article-meta">
+                                <span class="article-source">${article.source}</span>
+                                <span class="article-sentiment sentiment-${article.sentiment}">
+                                    ${article.sentiment === 'positive' ? '😊' : article.sentiment === 'negative' ? '😞' : '😐'}
+                                    ${article.sentiment === 'positive' ? 'Позитив' : article.sentiment === 'negative' ? 'Негатив' : 'Нейтраль'}
+                                </span>
+                                <span>${new Date(article.date).toLocaleDateString('ru-RU')}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 12px;">
+                        <a href="${article.url}" target="_blank" rel="noopener noreferrer" style="
+                            display: inline-flex;
+                            align-items: center;
+                            gap: 6px;
+                            font-size: 12px;
+                            color: #0a66c2;
+                            text-decoration: none;
+                            padding: 6px 0;
+                        ">
+                            🔗 Открыть статью
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function drawTrendsChart() {
+            const ctx = document.getElementById('trendsChart').getContext('2d');
+            
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: historicalData.weeks,
+                    datasets: [
+                        {
+                            label: 'Axenix',
+                            data: historicalData.axenix,
+                            borderColor: '#0a66c2',
+                            backgroundColor: 'rgba(10, 102, 194, 0.05)',
+                            borderWidth: 2,
+                            tension: 0.4,
+                            fill: true,
+                            pointRadius: 4,
+                            pointBackgroundColor: '#0a66c2'
+                        },
+                        {
+                            label: 'Bell Integrator',
+                            data: historicalData.bell,
+                            borderColor: '#06a77d',
+                            backgroundColor: 'rgba(6, 167, 125, 0.05)',
+                            borderWidth: 2,
+                            tension: 0.4,
+                            fill: true,
+                            pointRadius: 4,
+                            pointBackgroundColor: '#06a77d'
+                        },
+                        {
+                            label: 'Средний показатель',
+                            data: historicalData.average,
+                            borderColor: '#ffc107',
+                            borderDash: [5, 5],
+                            borderWidth: 2,
+                            tension: 0.4,
+                            fill: false,
+                            pointRadius: 0
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { y: { beginAtZero: true } }
+                }
+            });
+        }
+        
+        function drawSourcesChart() {
+            const axenixData = allCompanies['axenix'];
+            
+            if (!axenixData || !axenixData.sources) return;
+            
+            const sources = Object.keys(axenixData.sources);
+            const counts = Object.values(axenixData.sources);
+            
+            const ctx = document.getElementById('sourcesChart').getContext('2d');
+            
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: sources,
+                    datasets: [{
+                        label: 'Упоминания Axenix',
+                        data: counts,
+                        backgroundColor: '#0a66c2',
+                        borderRadius: 4
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { x: { beginAtZero: true } }
+                }
+            });
+        }
+        
+        function renderCompanies(filter = 'all') {
+            const grid = document.getElementById('companies-grid');
+            grid.innerHTML = '';
+            
+            let companies = Object.entries(allCompanies)
+                .sort((a, b) => b[1].mentions - a[1].mentions);
+            
+            if (filter === 'top10') {
+                companies = companies.slice(0, 10);
+            } else if (filter === 'axenix-competitors') {
+                companies = companies
+                    .filter(([key]) => key !== 'axenix')
+                    .slice(0, 5);
+            }
+            
+            companies.forEach(([key, data]) => {
+                const card = document.createElement('div');
+                card.className = 'company-card';
+                
+                const totalMentions = data.mentions || 0;
+                const positive = data.sentiment?.positive || 0;
+                const neutral = data.sentiment?.neutral || 0;
+                const negative = data.sentiment?.negative || 0;
+                
+                const positivePercent = totalMentions > 0 ? Math.round((positive / totalMentions) * 100) : 0;
+                const neutralPercent = totalMentions > 0 ? Math.round((neutral / totalMentions) * 100) : 0;
+                const negativePercent = totalMentions > 0 ? Math.round((negative / totalMentions) * 100) : 0;
+                
+                const topTopics = Object.entries(data.topics || {})
+                    .sort((a, b) => b[1] - a[1])
+                    .slice(0, 3)
+                    .map(([topic]) => topic);
+                
+                card.innerHTML = `
+                    <div class="company-name">${key.toUpperCase()}</div>
+                    <div class="company-stat">
+                        <span>Упоминаний:</span>
+                        <span class="company-stat-value">${totalMentions}</span>
+                    </div>
+                    <div class="company-stat">
+                        <span>Источников:</span>
+                        <span class="company-stat-value">${Object.keys(data.sources || {}).length}</span>
+                    </div>
+                    <div class="sentiment-bars">
+                        <div class="sentiment-bar-positive" style="flex: ${positivePercent};"></div>
+                        <div class="sentiment-bar-neutral" style="flex: ${neutralPercent};"></div>
+                        <div class="sentiment-bar-negative" style="flex: ${negativePercent};"></div>
+                    </div>
+                    <div style="font-size: 11px; margin-top: 8px; color: #65676b;">
+                        Сентимент: ${positivePercent}% + / ${neutralPercent}% = / ${negativePercent}% −
+                    </div>
+                    <div class="topics">
+                        ${topTopics.map(topic => `<span class="topic-tag">${topic}</span>`).join('')}
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+        }
+        
+        function renderTopics() {
+            const container = document.getElementById('topics-container');
+            
+            const allTopics = {};
+            Object.values(allCompanies).forEach(company => {
+                Object.entries(company.topics || {}).forEach(([topic, count]) => {
+                    allTopics[topic] = (allTopics[topic] || 0) + count;
+                });
+            });
+            
+            const topTopics = Object.entries(allTopics)
+                .sort((a, b) => b[1] - a[1])
+                .slice(0, 15);
+            
+            const html = topTopics.map(([topic, count]) => {
+                const maxCount = Math.max(...Object.values(allTopics));
+                const width = (count / maxCount) * 100;
+                return `
+                    <div style="margin-bottom: 16px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+                            <span style="font-size: 13px; font-weight: 500;">${topic}</span>
+                            <span style="font-size: 13px; color: #65676b;">${count}</span>
+                        </div>
+                        <div style="height: 6px; background: #e1e8ed; border-radius: 3px; overflow: hidden;">
+                            <div style="height: 100%; background: #0a66c2; width: ${width}%;"></div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            container.innerHTML = html;
+        }
+        
+        function updateLastUpdate() {
+            const date = new Date(currentData.timestamp);
+            const formatted = date.toLocaleDateString('ru-RU', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            document.getElementById('last-update-info').textContent = '• Обновлено: ' + formatted;
+        }
+        
+        function setupFilters() {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    renderCompanies(this.dataset.filter);
+                });
+            });
+        }
+        
+        document.addEventListener('DOMContentLoaded', loadData);
+    </script>
+</body>
+</html>

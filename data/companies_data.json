@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-06-08T18:15:15.348191",
-  "week": 24,
-  "total_mentions": 560,
+  "timestamp": "2026-06-15T20:39:13.436740",
+  "week": 25,
+  "total_mentions": 557,
   "companies": {
     "axenix": {
       "mentions": 20,
@@ -928,38 +928,17 @@
       ]
     },
     "goodsforecast": {
-      "mentions": 7,
+      "mentions": 4,
       "sources": {
-        "Google News": 7
+        "Google News": 4
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 7,
+        "neutral": 4,
         "negative": 0
       },
       "topics": {},
       "top_articles": [
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        },
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        },
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        },
         {
           "source": "Google News",
           "title": "",
@@ -1159,13 +1138,13 @@
       ]
     },
     "rubbles": {
-      "mentions": 17,
+      "mentions": 18,
       "sources": {
-        "Google News": 17
+        "Google News": 18
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 17,
+        "neutral": 18,
         "negative": 0
       },
       "topics": {},
@@ -1831,13 +1810,13 @@
       ]
     },
     "napoleon": {
-      "mentions": 16,
+      "mentions": 14,
       "sources": {
-        "Google News": 16
+        "Google News": 14
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 16,
+        "neutral": 14,
         "negative": 0
       },
       "topics": {},
@@ -1950,13 +1929,13 @@
       ]
     },
     "optimakros": {
-      "mentions": 16,
+      "mentions": 20,
       "sources": {
-        "Google News": 16
+        "Google News": 20
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 16,
+        "neutral": 20,
         "negative": 0
       },
       "topics": {},
@@ -2454,31 +2433,17 @@
       ]
     },
     "auxo": {
-      "mentions": 11,
+      "mentions": 8,
       "sources": {
-        "Google News": 11
+        "Google News": 8
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 11,
+        "neutral": 8,
         "negative": 0
       },
       "topics": {},
       "top_articles": [
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        },
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        },
         {
           "source": "Google News",
           "title": "",

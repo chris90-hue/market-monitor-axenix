@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-06-29T17:59:28.803582",
-  "week": 27,
-  "total_mentions": 563,
+  "timestamp": "2026-07-06T12:54:37.556700",
+  "week": 28,
+  "total_mentions": 558,
   "companies": {
     "axenix": {
       "mentions": 20,
@@ -1152,13 +1152,13 @@
       ]
     },
     "rubbles": {
-      "mentions": 19,
+      "mentions": 18,
       "sources": {
-        "Google News": 19
+        "Google News": 18
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 19,
+        "neutral": 18,
         "negative": 0
       },
       "topics": {},
@@ -1656,17 +1656,24 @@
       ]
     },
     "kept": {
-      "mentions": 8,
+      "mentions": 9,
       "sources": {
-        "Google News": 8
+        "Google News": 9
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 8,
+        "neutral": 9,
         "negative": 0
       },
       "topics": {},
       "top_articles": [
+        {
+          "source": "Google News",
+          "title": "",
+          "url": "",
+          "sentiment": "neutral",
+          "date": ""
+        },
         {
           "source": "Google News",
           "title": "",
@@ -1894,13 +1901,13 @@
       ]
     },
     "novardis": {
-      "mentions": 4,
+      "mentions": 3,
       "sources": {
-        "Google News": 4
+        "Google News": 3
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 4,
+        "neutral": 3,
         "negative": 0
       },
       "topics": {},
@@ -1925,24 +1932,17 @@
           "url": "",
           "sentiment": "neutral",
           "date": ""
-        },
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
         }
       ]
     },
     "optimakros": {
-      "mentions": 17,
+      "mentions": 16,
       "sources": {
-        "Google News": 17
+        "Google News": 16
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 17,
+        "neutral": 16,
         "negative": 0
       },
       "topics": {},
@@ -2440,13 +2440,13 @@
       ]
     },
     "auxo": {
-      "mentions": 14,
+      "mentions": 11,
       "sources": {
-        "Google News": 14
+        "Google News": 11
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 14,
+        "neutral": 11,
         "negative": 0
       },
       "topics": {},

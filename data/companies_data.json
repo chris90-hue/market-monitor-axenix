@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-07-20T11:51:25.563070",
-  "week": 30,
-  "total_mentions": 567,
+  "timestamp": "2026-07-27T12:31:32.491896",
+  "week": 31,
+  "total_mentions": 576,
   "companies": {
     "axenix": {
       "mentions": 20,
@@ -928,31 +928,17 @@
       ]
     },
     "goodsforecast": {
-      "mentions": 9,
+      "mentions": 7,
       "sources": {
-        "Google News": 9
+        "Google News": 7
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 9,
+        "neutral": 7,
         "negative": 0
       },
       "topics": {},
       "top_articles": [
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        },
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        },
         {
           "source": "Google News",
           "title": "",
@@ -1677,17 +1663,24 @@
       ]
     },
     "kept": {
-      "mentions": 9,
+      "mentions": 10,
       "sources": {
-        "Google News": 9
+        "Google News": 10
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 9,
+        "neutral": 10,
         "negative": 0
       },
       "topics": {},
       "top_articles": [
+        {
+          "source": "Google News",
+          "title": "",
+          "url": "",
+          "sentiment": "neutral",
+          "date": ""
+        },
         {
           "source": "Google News",
           "title": "",
@@ -1838,13 +1831,13 @@
       ]
     },
     "napoleon": {
-      "mentions": 19,
+      "mentions": 20,
       "sources": {
-        "Google News": 19
+        "Google News": 20
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 19,
+        "neutral": 20,
         "negative": 0
       },
       "topics": {},
@@ -1922,17 +1915,59 @@
       ]
     },
     "novardis": {
-      "mentions": 3,
+      "mentions": 9,
       "sources": {
-        "Google News": 3
+        "Google News": 9
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 3,
+        "neutral": 9,
         "negative": 0
       },
       "topics": {},
       "top_articles": [
+        {
+          "source": "Google News",
+          "title": "",
+          "url": "",
+          "sentiment": "neutral",
+          "date": ""
+        },
+        {
+          "source": "Google News",
+          "title": "",
+          "url": "",
+          "sentiment": "neutral",
+          "date": ""
+        },
+        {
+          "source": "Google News",
+          "title": "",
+          "url": "",
+          "sentiment": "neutral",
+          "date": ""
+        },
+        {
+          "source": "Google News",
+          "title": "",
+          "url": "",
+          "sentiment": "neutral",
+          "date": ""
+        },
+        {
+          "source": "Google News",
+          "title": "",
+          "url": "",
+          "sentiment": "neutral",
+          "date": ""
+        },
+        {
+          "source": "Google News",
+          "title": "",
+          "url": "",
+          "sentiment": "neutral",
+          "date": ""
+        },
         {
           "source": "Google News",
           "title": "",
@@ -2461,13 +2496,13 @@
       ]
     },
     "auxo": {
-      "mentions": 10,
+      "mentions": 13,
       "sources": {
-        "Google News": 10
+        "Google News": 13
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 10,
+        "neutral": 13,
         "negative": 0
       },
       "topics": {},

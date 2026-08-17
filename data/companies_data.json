@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-08-10T10:23:14.315955",
-  "week": 33,
-  "total_mentions": 572,
+  "timestamp": "2026-08-17T09:49:50.941207",
+  "week": 34,
+  "total_mentions": 582,
   "companies": {
     "axenix": {
       "mentions": 20,
@@ -928,17 +928,24 @@
       ]
     },
     "goodsforecast": {
-      "mentions": 8,
+      "mentions": 9,
       "sources": {
-        "Google News": 8
+        "Google News": 9
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 8,
+        "neutral": 9,
         "negative": 0
       },
       "topics": {},
       "top_articles": [
+        {
+          "source": "Google News",
+          "title": "",
+          "url": "",
+          "sentiment": "neutral",
+          "date": ""
+        },
         {
           "source": "Google News",
           "title": "",
@@ -1166,13 +1173,13 @@
       ]
     },
     "rubbles": {
-      "mentions": 16,
+      "mentions": 20,
       "sources": {
-        "Google News": 16
+        "Google News": 20
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 16,
+        "neutral": 20,
         "negative": 0
       },
       "topics": {},
@@ -1670,17 +1677,24 @@
       ]
     },
     "kept": {
-      "mentions": 7,
+      "mentions": 8,
       "sources": {
-        "Google News": 7
+        "Google News": 8
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 7,
+        "neutral": 8,
         "negative": 0
       },
       "topics": {},
       "top_articles": [
+        {
+          "source": "Google News",
+          "title": "",
+          "url": "",
+          "sentiment": "neutral",
+          "date": ""
+        },
         {
           "source": "Google News",
           "title": "",
@@ -1901,17 +1915,24 @@
       ]
     },
     "novardis": {
-      "mentions": 9,
+      "mentions": 10,
       "sources": {
-        "Google News": 9
+        "Google News": 10
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 9,
+        "neutral": 10,
         "negative": 0
       },
       "topics": {},
       "top_articles": [
+        {
+          "source": "Google News",
+          "title": "",
+          "url": "",
+          "sentiment": "neutral",
+          "date": ""
+        },
         {
           "source": "Google News",
           "title": "",
@@ -2482,13 +2503,13 @@
       ]
     },
     "auxo": {
-      "mentions": 12,
+      "mentions": 15,
       "sources": {
-        "Google News": 12
+        "Google News": 15
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 12,
+        "neutral": 15,
         "negative": 0
       },
       "topics": {},

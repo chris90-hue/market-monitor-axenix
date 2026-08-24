@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-08-17T09:49:50.941207",
-  "week": 34,
+  "timestamp": "2026-08-24T09:54:45.886797",
+  "week": 35,
   "total_mentions": 582,
   "companies": {
     "axenix": {
@@ -1677,17 +1677,24 @@
       ]
     },
     "kept": {
-      "mentions": 8,
+      "mentions": 9,
       "sources": {
-        "Google News": 8
+        "Google News": 9
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 8,
+        "neutral": 9,
         "negative": 0
       },
       "topics": {},
       "top_articles": [
+        {
+          "source": "Google News",
+          "title": "",
+          "url": "",
+          "sentiment": "neutral",
+          "date": ""
+        },
         {
           "source": "Google News",
           "title": "",
@@ -1915,24 +1922,17 @@
       ]
     },
     "novardis": {
-      "mentions": 10,
+      "mentions": 9,
       "sources": {
-        "Google News": 10
+        "Google News": 9
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 10,
+        "neutral": 9,
         "negative": 0
       },
       "topics": {},
       "top_articles": [
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        },
         {
           "source": "Google News",
           "title": "",

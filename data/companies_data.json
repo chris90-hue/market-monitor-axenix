@@ -1,6 +1,6 @@
 {
-  "timestamp": "2026-09-21T15:49:11.274820",
-  "week": 39,
+  "timestamp": "2026-09-28T17:32:28.495516",
+  "week": 40,
   "total_mentions": 576,
   "companies": {
     "axenix": {
@@ -928,17 +928,31 @@
       ]
     },
     "goodsforecast": {
-      "mentions": 8,
+      "mentions": 10,
       "sources": {
-        "Google News": 8
+        "Google News": 10
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 8,
+        "neutral": 10,
         "negative": 0
       },
       "topics": {},
       "top_articles": [
+        {
+          "source": "Google News",
+          "title": "",
+          "url": "",
+          "sentiment": "neutral",
+          "date": ""
+        },
+        {
+          "source": "Google News",
+          "title": "",
+          "url": "",
+          "sentiment": "neutral",
+          "date": ""
+        },
         {
           "source": "Google News",
           "title": "",
@@ -1670,17 +1684,24 @@
       ]
     },
     "kept": {
-      "mentions": 6,
+      "mentions": 7,
       "sources": {
-        "Google News": 6
+        "Google News": 7
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 6,
+        "neutral": 7,
         "negative": 0
       },
       "topics": {},
       "top_articles": [
+        {
+          "source": "Google News",
+          "title": "",
+          "url": "",
+          "sentiment": "neutral",
+          "date": ""
+        },
         {
           "source": "Google News",
           "title": "",
@@ -1971,13 +1992,13 @@
       ]
     },
     "optimakros": {
-      "mentions": 20,
+      "mentions": 17,
       "sources": {
-        "Google News": 20
+        "Google News": 17
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 20,
+        "neutral": 17,
         "negative": 0
       },
       "topics": {},

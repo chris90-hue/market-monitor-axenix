@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-10-12T18:51:03.352893",
-  "week": 42,
-  "total_mentions": 581,
+  "timestamp": "2026-10-19T16:22:12.599150",
+  "week": 43,
+  "total_mentions": 577,
   "companies": {
     "axenix": {
       "mentions": 20,
@@ -1684,45 +1684,17 @@
       ]
     },
     "kept": {
-      "mentions": 9,
+      "mentions": 5,
       "sources": {
-        "Google News": 9
+        "Google News": 5
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 9,
+        "neutral": 5,
         "negative": 0
       },
       "topics": {},
       "top_articles": [
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        },
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        },
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        },
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        },
         {
           "source": "Google News",
           "title": "",

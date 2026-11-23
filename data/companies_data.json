@@ -1,7 +1,7 @@
 {
-  "timestamp": "2026-11-16T19:27:40.669163",
-  "week": 47,
-  "total_mentions": 511,
+  "timestamp": "2026-11-23T21:06:14.179582",
+  "week": 48,
+  "total_mentions": 494,
   "companies": {
     "axenix": {
       "mentions": 20,
@@ -88,97 +88,13 @@
       ]
     },
     "bell": {
-      "mentions": 20,
+      "mentions": 15,
       "sources": {
-        "Google News": 20
+        "Google News": 15
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 20,
-        "negative": 0
-      },
-      "topics": {},
-      "top_articles": [
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        },
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        },
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        },
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        },
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        },
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        },
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        },
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        },
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        },
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        }
-      ]
-    },
-    "glowbyte": {
-      "mentions": 20,
-      "sources": {
-        "Google News": 20
-      },
-      "sentiment": {
-        "positive": 0,
-        "neutral": 20,
+        "neutral": 15,
         "negative": 0
       },
       "topics": {},
@@ -844,13 +760,13 @@
       ]
     },
     "rarus": {
-      "mentions": 19,
+      "mentions": 16,
       "sources": {
-        "Google News": 19
+        "Google News": 16
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 19,
+        "neutral": 16,
         "negative": 0
       },
       "topics": {},
@@ -1061,13 +977,13 @@
       ]
     },
     "knowledge": {
-      "mentions": 11,
+      "mentions": 12,
       "sources": {
-        "Google News": 11
+        "Google News": 12
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 11,
+        "neutral": 12,
         "negative": 0
       },
       "topics": {},
@@ -1145,13 +1061,13 @@
       ]
     },
     "rubbles": {
-      "mentions": 10,
+      "mentions": 15,
       "sources": {
-        "Google News": 10
+        "Google News": 15
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 10,
+        "neutral": 15,
         "negative": 0
       },
       "topics": {},
@@ -1397,13 +1313,13 @@
       ]
     },
     "b1": {
-      "mentions": 16,
+      "mentions": 19,
       "sources": {
-        "Google News": 16
+        "Google News": 19
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 16,
+        "neutral": 19,
         "negative": 0
       },
       "topics": {},
@@ -1775,13 +1691,13 @@
       ]
     },
     "napoleon": {
-      "mentions": 10,
+      "mentions": 15,
       "sources": {
-        "Google News": 10
+        "Google News": 15
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 10,
+        "neutral": 15,
         "negative": 0
       },
       "topics": {},
@@ -1859,13 +1775,13 @@
       ]
     },
     "novardis": {
-      "mentions": 1,
+      "mentions": 2,
       "sources": {
-        "Google News": 1
+        "Google News": 2
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 1,
+        "neutral": 2,
         "negative": 0
       },
       "topics": {},
@@ -1876,17 +1792,24 @@
           "url": "",
           "sentiment": "neutral",
           "date": ""
+        },
+        {
+          "source": "Google News",
+          "title": "",
+          "url": "",
+          "sentiment": "neutral",
+          "date": ""
         }
       ]
     },
     "optimakros": {
-      "mentions": 10,
+      "mentions": 14,
       "sources": {
-        "Google News": 10
+        "Google News": 14
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 10,
+        "neutral": 14,
         "negative": 0
       },
       "topics": {},
@@ -2216,38 +2139,17 @@
       ]
     },
     "philosophy": {
-      "mentions": 16,
+      "mentions": 7,
       "sources": {
-        "Google News": 16
+        "Google News": 7
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 16,
+        "neutral": 7,
         "negative": 0
       },
       "topics": {},
       "top_articles": [
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        },
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        },
-        {
-          "source": "Google News",
-          "title": "",
-          "url": "",
-          "sentiment": "neutral",
-          "date": ""
-        },
         {
           "source": "Google News",
           "title": "",
@@ -2384,17 +2286,24 @@
       ]
     },
     "auxo": {
-      "mentions": 9,
+      "mentions": 10,
       "sources": {
-        "Google News": 9
+        "Google News": 10
       },
       "sentiment": {
         "positive": 0,
-        "neutral": 9,
+        "neutral": 10,
         "negative": 0
       },
       "topics": {},
       "top_articles": [
+        {
+          "source": "Google News",
+          "title": "",
+          "url": "",
+          "sentiment": "neutral",
+          "date": ""
+        },
         {
           "source": "Google News",
           "title": "",
